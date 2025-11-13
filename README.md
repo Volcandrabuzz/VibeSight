@@ -1,12 +1,19 @@
 
-# (PulseLens Agent)
+# 🧠 VibeSight: AI-Powered Motion Magnification & Health Analytics
 
-PulseLens Agent is a cutting-edge solution that combines Video Magnification, Computer Vision, and Machine Learning to monitor both human and machine health. It uses the IO Net Agent to analyze original and magnified videos, generating vibration graphs and detailed reports. This enables non-contact, visual diagnostics for early anomaly detection and preventive maintenance across biomedical and industrial settings.
+## 🚀 Overview
+**VibeSight** is an AI-driven system that merges **human health analysis** and **industrial machinery diagnostics** through advanced **video magnification, computer vision**, and **machine learning algorithms**.  
+By amplifying subtle vibrations, color variations, and motion patterns invisible to the naked eye, VibeSight provides **early detection of anomalies** in both **human physiology** and **machine performance**.
+
+This project leverages **Eulerian Video Magnification** to extract and amplify micro-motions from videos and combines them with **deep learning** models to generate real-time **health and condition reports**.  
+Through seamless integration with **supOS**, it bridges the gap between **human safety** and **industrial reliability** in a unified monitoring ecosystem.
+
+---
 
 # Working:
 
 Video Upload & Magnification
-The user uploads a video through the client. The Magnification Server processes it using Phase and Euclid-based video magnification to reveal subtle vibrations.
+The user uploads a video through the client. The Magnification Server processes it using Phase-based and Eulerian-based video magnification to reveal subtle vibrations.
 
 Graph & Data Generation
 The processed video is sent to the Graph Generation Server, which extracts movement data and creates graphs. This data is then analyzed via IO Net Intelligence API.
@@ -14,8 +21,8 @@ The processed video is sent to the Graph Generation Server, which extracts movem
 Insightful Report Creation
 The analyzed results are forwarded to the Report Generation Server, which compiles a human-readable report combining original and magnified data insights.
 
-<img width="1055" height="416" alt="image" src="https://github.com/user-attachments/assets/fcfdc73c-e441-4c4c-800b-5f6f32e9f308" />
-
+# System Architecture:
+![System Architecture](Static/s_design.png)
 
 # Frontend:
 
@@ -37,29 +44,119 @@ The analyzed results are forwarded to the Report Generation Server, which compil
 <img width="1280" height="722" alt="image" src="https://github.com/user-attachments/assets/2385f15d-d93a-4682-8541-35a98a0838cb" />
 
 
-## Features
+## 🎯 Key Features
 
-- **Eulerian Video Magnification**: Enhance video footage to make subtle motion patterns, vibrations, and color changes more visible.
-- **Human Health Analysis**: Utilize video footage to examine human movements, generate health parameter graphs using computer vision, and provide detailed health reports using machine learning algorithms.
-- **Use Cases**:
-  - Respiratory Rate Monitoring: Identify irregular breathing patterns and track breath frequency.
-  - Heart Rate Monitoring: Continuously monitor heart rate to assess cardiovascular health and fitness levels.
-  - Aircraft Engine Health Analysis: Assess aircraft engine health by detecting vibrations and micro-scale defects to prevent unexpected failures.
+### 🔬 Video-Based Motion Analysis
+- Implements **Eulerian and Phase-based Video Magnification** to reveal subtle changes in motion and color.
+- Detects vibrations, heartbeat-induced skin tone shifts, and micro-defects in mechanical components.
 
-## Dependencies
+### 🧍 Human Health Analysis
+- Monitors **respiratory rate** and **heart rate** from live or recorded footage.
+- Uses computer vision and ML models to classify human health states (Normal / Cautionary / Critical).
+- Generates **visual health graphs** and summary reports using the IO Net Intelligence module.
 
-- Flask: Python web framework for backend development.
-- OpenCV: Computer vision library for video processing.
-- TensorFlow/Keras: Machine learning framework for developing health analysis models.
-- IO Net Intelligence : For graph generation and analysis
+### ⚙️ Machinery Health Diagnostics
+- Monitors **vibration intensity** and **frequency patterns** from industrial video streams.
+- Identifies early indicators of **bearing wear, imbalance, or misalignment**.
+- Specialized **aircraft engine health module** detects micro-scale defects to prevent in-flight failures.
 
-## Show Stoppers
+### 🧩 supOS Integration
+VibeSight seamlessly integrates with **supOS (Smart Unified Platform Operating System)** — the industrial operating layer for data orchestration and event-driven automation:
+- **Data Flow:** Vibration and motion data extracted by the Flask backend are sent to the **supOS Unified Namespace** via MQTT topics.  
+  Example topic structure: Factory/Line1/MachineCNC/VibrationRate      |       Factory/Line1/Operator/HeartRate
+- **Visualization:** supOS dashboards display live vibration graphs and human health metrics.
+- **Automation:** supOS Event Flows trigger actions — e.g., send alerts when vibration exceeds safe thresholds or when operator fatigue is detected.
+- **Scalability:** The system can be deployed across multiple factories, using supOS as a central hub for monitoring all human and machine health events.
 
-- Universal Device Compatibility: Ensure flawless performance across a spectrum of devices, including web, windows and Android platforms.
-- Real Time Motion Magnification using Frame-By-Frame Difference of Vibrations.
+---
 
-  # Overview
-Harnessing Video Magnification, Computer Vision, and Machine Learning Algorithms, the system provides comprehensive insights into machinery and human health.
+## 🧠 Technology Stack
+
+| Component | Technology |
+|------------|-------------|
+| **Frontend** | React.js (video upload, configuration, real-time logs via WebSockets) |
+| **Backend (Magnification)** | Flask (Python) with OpenCV for video magnification |
+| **Report Generator** | Node.js server to aggregate AI responses and generate summaries |
+| **AI Models** | TensorFlow / Keras (human health analysis) |
+| **Visualization & Graphs** | IO Net Intelligence |
+| **Data Integration** | supOS Unified Namespace + MQTT broker |
+| **Cloud Storage** | Cloudinary for video hosting |
+| **Realtime Communication** | Flask-SocketIO for progress updates |
+
+---
+
+# 🧩 System Architecture
+
+```text
+Frontend (React)
+        ↓
+Magnification Server (Flask)
+        ↓
+Graph Generation Server (Python)
+        ↓
+Report Generator API (Node.js)
+        ↓
+supOS Unified Namespace (MQTT / Event Flow)
+        ↓
+Dashboards, Alerts, and Predictive Insights
+
+```
+---
+
+## 🔗 Data Flow Explanation
+
+### **Frontend (React)**
+- User interface for visualizing vibration data and analysis results.  
+- Sends requests to the Flask backend for magnified motion processing.
+
+### **Magnification Server (Flask)**
+- Performs motion magnification using AI models.  
+- Extracts key vibration signals from video or sensor data.
+
+### **Graph Generation Server (Python)**
+- Analyzes magnified data and generates time-series and frequency-domain graphs.  
+- Outputs processed insights and visual representations.
+
+### **Report Generator API (Node.js)**
+- Compiles analytics, graphs, and AI insights into structured reports (PDF/JSON).  
+- Interfaces with **supOS** for unified data publishing.
+
+### **supOS Unified Namespace (MQTT / Event Flow)**
+- Central event bus connecting all components.  
+- Streams real-time updates, alerts, and processed metrics.
+
+### **Dashboards, Alerts & Predictive Insights**
+- **supOS** dashboards visualize live health analytics and predictive maintenance alerts.  
+- Supports data-driven decision-making for operators and engineers.
+
+---
+
+## 💡 Use Cases
+
+| Domain | Application | Description |
+|--------|--------------|-------------|
+| 🏭 **Industrial** | Predictive Maintenance | Detect machine vibrations or misalignments early to prevent costly downtime. |
+| ✈️ **Aerospace** | Engine Health Monitoring | Identify micro-defects in aircraft engines to improve reliability. |
+| 🧍 **Healthcare** | Human Vital Monitoring | Monitor heart rate and respiration without contact sensors using video data. |
+| 🧑‍🏭 **Operator Safety** | Workplace Fatigue Detection | Track human posture and breathing to ensure safety in hazardous environments. |
+
+---
+
+## ⚠️ Showstoppers & Challenges
+- **Universal Device Compatibility:** Designed to run across Web, Windows, and Android platforms.
+- **Scalability:** Modular microservice architecture ensures efficient handling of multiple video streams.
+- **Regulatory Compliance:** Designed with healthcare and industrial data standards in mind (HIPAA-ready structure).
+- **Real Time Motion Magnification** using Frame-By-Frame Difference of Vibrations.
+
+
+---
+
+## 🧩 Future Work
+- Integrate **supOS AI Toolkit** for anomaly detection directly inside the supOS interface.
+- Develop a **low-code supOS dashboard template** for real-time machine-health analytics.
+- Extend live video magnification with **GPU acceleration** for industrial-scale deployment.
+
+---
 
 ## Working Architecture
 (Refer to the diagram in the project repo for a visual representation.)
@@ -75,16 +172,14 @@ Harnessing Video Magnification, Computer Vision, and Machine Learning Algorithms
 
 5. **Live Magnification:** Developed as a proof of concept, this feature skips the process of applying filters and magnifies the video in real time. However, note that the magnification quality might not be optimal, and the video is grayscale.
 
-### Frontend:
-The React frontend allows users to select magnification parameters and upload videos to Cloudinary. The uploaded video link is then sent to the magnification server for further processing. Before uploading, the video undergoes cropping and preprocessing to reduce resolution and frame rate, thus reducing the load on the magnification server. Additionally, it utilizes web sockets for real-time logs for video magnification.
-
+---
 
 ## Usage Magnification Server
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/preyanshu/pulse_lens_agent.git
+   git clone https://github.com/Volcandrabuzz/Vibra-Sense-Motionizer
    ```
 2. CD into Magnification_Server:
 
@@ -106,12 +201,14 @@ The React frontend allows users to select magnification parameters and upload vi
 
    DO THE SAME WITH REPORT AND GRAPH GEN SERVER.
 
+   ---
+
    ## Usage Frontend
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/preyanshu/pulse_lens_agent.git
+   git clone https://github.com/Volcandrabuzz/Vibra-Sense-Motionizer
    ```
 
 2. CD into Frontend:
@@ -134,9 +231,18 @@ The React frontend allows users to select magnification parameters and upload vi
 
 4. Access the application through the provided URL in your web browser at port 3000.
 
+---
 
+## 📸 Demo
+🎥 Prototype Video: [Watch Here](https://youtu.be/Ni9JRBwZUow)
 
+---
 
+## 🏁 Summary
+> **VibeSight** is a unified health intelligence system that bridges human and machine analytics using video magnification and AI — powered by **supOS’s Unified Data and Event-driven architecture**.  
+> It redefines predictive maintenance and human wellness monitoring for the smart industrial age.
+
+---
 
 ## Contributing
 
