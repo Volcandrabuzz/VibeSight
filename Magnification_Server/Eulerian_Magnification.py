@@ -263,7 +263,7 @@ def apply_butter(laplace_video_list, levels, alpha, cutoff, low, high, fps, widt
 def butterworth_filter(vidFile, alpha, cutoff, low, high, linearAttenuation, chromAttenuation, name):
     '''
     Performs motion magnification on the video by applying Butterworth bandpass filter and saves the output video
-    :param vidFile: Video file
+    :param vid_File: Video file
     :param alpha: Magnification factor
     :param cutoff: Spatial frequencies cutoff factor
     :param low: Temporal low frequency cutoff
