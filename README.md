@@ -244,8 +244,5 @@ Dashboards, Alerts, and Predictive Insights
 
 ---
 
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any new features, improvements, or bug fixes.
 
 
