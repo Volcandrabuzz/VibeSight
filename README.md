@@ -234,7 +234,7 @@ Dashboards, Alerts, and Predictive Insights
 ---
 
 ## 📸 Demo
-🎥 Prototype Video: [Watch Here](https://youtu.be/Ni9JRBwZUow)
+🎥 Prototype Video: [Watch Here](https://www.youtube.com/watch?v=nN3FEh2MlFA)
 
 ---
 
